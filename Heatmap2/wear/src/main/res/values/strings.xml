@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Heatmap2</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
+    <string name="title_activity_ranging">RangingActivity</string>
+    <string name="action_label">Action</string>
+    <string name="title_activity_monitoring">MonitoringActivity</string>
+
+</resources>
