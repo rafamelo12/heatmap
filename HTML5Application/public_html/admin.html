@@ -66,7 +66,7 @@
 
         <script>
             function init() {
-                var mapMinZoom = 0;
+                var mapMinZoom = 2;
                 var mapMaxZoom = 3;
                 var map = L.map('map', {
                     maxZoom: mapMaxZoom,
@@ -75,7 +75,7 @@
                 }).setView([0, 0], mapMaxZoom);
 
                 var mapBounds = new L.LatLngBounds(
-                        map.unproject([0, 1024], mapMaxZoom),
+                        map.unproject([0, 750], mapMaxZoom),
                         map.unproject([1280, 0], mapMaxZoom));
 
                 map.fitBounds(mapBounds);
@@ -207,7 +207,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="../admin.html"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -219,7 +219,7 @@
                             <a href="admin.html"><i class="fa fa-fw fa-dashboard"></i>All Players</a>
                         </li>
                         <li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#players_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Individual <i class="fa fa-fw fa-caret-down"></i></a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#players_dropdown"><i class="fa fa-fw fa-user"></i> Individual <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="players_dropdown" class="collapse">
                                 <li>
                                     <a href="#" id="demar">DeMar DeRozan</a>
@@ -255,7 +255,7 @@
                                                                     </li>-->
 
                         <li>
-                            <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Help</a>
+                            <a href="help.html"><i class="fa fa-fw fa-question-circle"></i> Help</a>
                         </li>
                     </ul>
                 </div>
@@ -398,7 +398,7 @@
                     <!-- /.row -->
 
                     <div class="row">
-                        <div class="col-lg-4">
+<!--                        <div class="col-lg-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
@@ -410,8 +410,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
+                        </div>-->
+<!--                        <div class="col-lg-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
@@ -456,8 +456,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
+                        </div>-->
+<!--                        <div class="col-lg-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
@@ -530,7 +530,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     <!-- /.row -->
 
