@@ -30,8 +30,10 @@ if(process.env.VCAP_SERVICES){
 }
 var connString = "DRIVER={DB2};DATABASE=" + db2.db + ";UID=" + db2.username + ";PWD=" + db2.password + ";HOSTNAME=" + db2.hostname + ";port=" + db2.port;
 // ROUTES
-app.get('/test', function(req, res){
-
+app.get('/', function(req, res){
+	res.render('index.ejs');
+});
+app.get('/admin', function(req, res){
 	ibmdb.open(connString, function(err, conn){
 		if(err){
 			res.send("Error occurred: ", err.message);
@@ -42,7 +44,7 @@ app.get('/test', function(req, res){
 					var data = [];
 					var count = 0;
 					var key2;
-					var filePath = path.join(__dirname, '/public/test.js');
+					var filePath = path.join(__dirname, '/public/js/ourData.js');
 					var wstream = fs.createWriteStream(filePath);
 					wstream.write('var quakePoints = [\n');
 					for (var key in tables){
@@ -59,27 +61,8 @@ app.get('/test', function(req, res){
 					}
 					wstream.write('];');
 					wstream.end(function (){
-						res.render('test.ejs', {
-								'data': filePath.toString()
-							});
+						res.render('admin.ejs');
 					});
-					// var filePath = path.join(__dirname, 'public/test.txt');
-					
-
-					
-						// if(!err){
-						// 	res.render('test.ejs', {
-						// 		'data': 'SAVED'
-						// 	});
-						// }else{
-						// 	res.render('test.ejs', {
-						// 		'data': err
-						// 	})
-						// }
-					// res.json(tables);
-					// res.render('test.ejs',{
-					// 	'data': tables
-					// });
 				}else{
 					res.send("Error occurred: ", err.message);		
 				}
