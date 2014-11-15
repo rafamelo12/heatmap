@@ -1,5 +1,7 @@
 applications:
-- disk_quota: 1024M
+- services:
+  - sqldb
+  disk_quota: 1024M
   host: Heat-Map
   name: Heat Map
   command: node app.js
