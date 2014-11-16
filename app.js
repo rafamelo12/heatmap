@@ -78,22 +78,9 @@ app.get('/admin', function(req, res){
 	});
 });
 app.post('/collectData', function(req, res){
-	var kiwi_id = req.body.kiwi_id;
-	var distance_beacon1 = req.body.distance_beacon1;
-	var distance_beacon2 = req.body.distance_beacon2;
-	var distance_beacon3 = req.body.distance_beacon3;
-	var timestamp = req.body.timestamp;
-	// res.send(distance_beacon1);
-	// var response = {
-	// 	"kiwi_id": kiwi_id,
-	// 	"distance_beacon1": distance_beacon1,
-	// 	"distance_beacon2": distance_beacon2,
-	// 	"distance_beacon3": distance_beacon3
-	// };
-	// res.json(response);
-	
-	var query = "INSERT INTO KIWIDATA (kiwi_id, distance_beacon1, distance_beacon2, distance_beacon3, timestamp) VALUES('"+kiwi_id.toString()+"',"+parseFloat(distance_beacon1)+","+parseFloat(distance_beacon2)+","+parseFloat(distance_beacon3)+","+parseInt(timestamp)+")";
-	// res.send(query);
+	var x = req.body['x'];
+	var y = req.body['y'];
+	var query = "INSERT INTO FAKEDATA (x, y) VALUES("+x+","+y+")";
 	ibmdb.open(connString, function(err, conn){
 		if(err){
 			res.send("Error occurred: ", err.message);
