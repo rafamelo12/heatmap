@@ -21,6 +21,16 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
     private static TextView tv1;
     private static TextView tv2;
     private static TextView tv3;
+    private static TextView tv4;
+
+    private Coordinate b1Coord = new Coordinate(0, 0);
+    private Coordinate b2Coord = new Coordinate(1, 0);
+    private Coordinate b3Coord = new Coordinate(0, 1);
+    private Coordinate user = new Coordinate();
+
+    private float d1 = 0;
+    private float d2 = 0;
+    private float d3 = 0;
 
     private Menu _menu;
 
@@ -32,6 +42,7 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv3 = (TextView) findViewById(R.id.textView2);
+        tv4 = (TextView) findViewById(R.id.textView2);
 
         if(_beacons == null)
             _beacons = new ArrayList<IBeacon>();
@@ -79,12 +90,16 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
     @Override
     public void beaconFound(IBeacon ibeacon) {
         if(ibeacon.getMajor() == 7 && ibeacon.getMinor() == 44659){
+            ibeacon.setPosition(b1Coord);
             _beacons.add(ibeacon);
+
         }
         else if(ibeacon.getMajor() == 125 && ibeacon.getMinor() == 2631){
+            ibeacon.setPosition(b2Coord);
             _beacons.add(ibeacon);
         }
         else if(ibeacon.getMajor() == 7 && ibeacon.getMinor() == 45002){
+            ibeacon.setPosition(b3Coord);
             _beacons.add(ibeacon);
         }
         runOnUiThread(new Runnable() {
@@ -126,13 +141,19 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
         for(int i = 0; i < _beacons.size(); i++){
             if(_beacons.get(i).getMajor() == 7 && _beacons.get(i).getMinor() == 44659){
                 tv1.setText(String.valueOf(_beacons.get(i).getProximity()));
+                d1 = _beacons.get(i).getProximity();
             }
             else if(_beacons.get(i).getMajor() == 125 && _beacons.get(i).getMinor() == 2631){
                 tv2.setText(String.valueOf(_beacons.get(i).getProximity()));
+                d2 = _beacons.get(i).getProximity();
             }
             else if(_beacons.get(i).getMajor() == 7 && _beacons.get(i).getMinor() == 45002){
                 tv3.setText(String.valueOf(_beacons.get(i).getProximity()));
+                d3 = _beacons.get(i).getProximity();
             }
         }
+
+        user.trilaterate(d1, d2, d3, b1Coord, b2Coord, b3Coord);
+        tv4.setText("(" + String.valueOf(user.getX()) + ", " + String.valueOf(user.getY()) + ", " + String.valueOf(user.getY()) + ")");
     }
 }

@@ -24,6 +24,8 @@ package com.sportshack.heatmap.beacontracker;
 import java.io.Serializable;
 
 public class IBeacon implements Serializable{
+
+    private Coordinate position;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -297,6 +299,14 @@ public class IBeacon implements Serializable{
 			return true;
 		return false;
 	}
+
+    public Coordinate getPosition() {
+        return position;
+    }
+
+    public void setPosition(Coordinate position) {
+        this.position = position;
+    }
 	
 	@Override
 	public String toString() {
