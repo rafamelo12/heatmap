@@ -25,6 +25,8 @@ import java.io.Serializable;
 
 public class IBeacon implements Serializable{
 	
+	private Coordinate position;
+	
 	private static final long serialVersionUID = 1L;
 	
 	/**
@@ -300,6 +302,14 @@ public class IBeacon implements Serializable{
 		return false;
 	}
 	
+	public Coordinate getPosition() {
+		return position;
+	}
+
+	public void setPosition(Coordinate position) {
+		this.position = position;
+	}
+
 	@Override
 	public String toString() {
 		return "UUID:" + this.getUuidHexString() + " M:" + this.getMajor() + " m:" + this.getMinor() + " p:" + this.getProximity();

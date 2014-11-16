@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-271718d1b822e31b7699570251b26f6678c5c8d0.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v13\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-392780813fabd9cf5aea9089a0953daae6e72aeb.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\1.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="6804efbb78d7facc2e1aa107c7342bee83afae45"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-b957c17129d3c56ae7a7736d4dfd941cd99eb4e3.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-d83a83d34d3803ac0738b266164617e8f624404a.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-95eeae4813a2dab944ff83b8795cd72d4a91f0d2.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\libs\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="df28ff15017707162b508f2bc96637dd57f3ed72"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-ba6f2de1051734ea8094e17d650a2a847e270d0c.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\6.1.71\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4ece008bb37e92b9323ee6259cbf4d4583052f9e"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-9b3391eb6922be6d22c749678f3dd168863fe7ea.jar"
+        jar="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v13\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
+    <item
+        dex="C:\Users\Felipe Santos\AndroidStudioProjects\Heatmap2\wear\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-a1be52f9a1ec8a5ca1375067b4fe1b7fb107d9ac.jar"
+        jar="D:\Android\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+
+</pre-dex-items>
