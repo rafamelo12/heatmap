@@ -32,15 +32,6 @@ public class Coordinate {
     }
 
     public void trilaterate(float d1, float d2, float d3, Coordinate a, Coordinate b, Coordinate c) {
-		/*this.x = ((b.getY() - c.getY()) * d1 * d1 -
-				   c.getY() * d2 * d2 -
-				   b.getY() * d3 * d3 +
-				   b.getY() * c.getX() * c.getX() +
-				   b.getY() * c.getY() * c.getY() +
-				   b.getY() * b.getY() * c.getY()) / (2 * b.getY() * c.getX());
-
-		this.y = (d1*d1 - d2*d2 - b.getY() * b.getY()) /(2 * b.getY());*/
-
         this.x = (d1*d1 - d2*d2 - b.getX() * b.getX()) /(2 * b.getX());
 
         this.y =  (d1*d1 - d3*d3 + c.getX()*c.getX() + c.getY()*c.getY())/(2*c.getY()) - (this.x * c.getX())/c.getY();

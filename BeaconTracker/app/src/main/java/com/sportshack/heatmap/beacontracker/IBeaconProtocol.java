@@ -55,7 +55,7 @@ public class IBeaconProtocol {
 	/**
 	 * Scanning period for iBeacon discovery in miliseconds
 	 */		
-	public static int SCANNING_PERIOD = 100;
+	public static int SCANNING_PERIOD = 700;
 
 	/**
 	 * The prefix for identifying easiBeacons

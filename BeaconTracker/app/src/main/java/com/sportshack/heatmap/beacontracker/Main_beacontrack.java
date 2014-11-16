@@ -130,6 +130,7 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
         }else if (state == IBeaconProtocol.SEARCH_END_EMPTY || state == IBeaconProtocol.SEARCH_END_SUCCESS){
             updateResults();
             scanBeacons();
+
         }
     }
 
@@ -155,6 +156,6 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
         }
 
         user.trilaterate(d1, d2, d3, b1Coord, b2Coord, b3Coord);
-        tv4.setText("(" + String.valueOf(user.getX()) + ", " + String.valueOf(user.getY()) + ", " + String.valueOf(user.getY()) + ")");
+        tv4.setText("(" + String.valueOf(user.getX()) + ", " + String.valueOf(user.getY()) + ", " + String.valueOf(user.getZ()) + ")");
     }
 }
