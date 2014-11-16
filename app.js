@@ -6,7 +6,7 @@ var express = require('express');
 var ibmdb = require('ibm_db');
 var fs = require('fs');
 var path = require('path');
-// var bodyParser = require('body-parser');
+
 // setup middleware
 var app = express();
 app.use(express.bodyParser());
@@ -37,10 +37,118 @@ var connString = "DRIVER={DB2};DATABASE=" + db2.db + ";UID=" + db2.username + ";
 app.get('/', function(req, res){
 	res.render('index.ejs');
 });
+app.get('/test', function(req, res){
+	ibmdb.open(connString, function(err, conn){
+		if(err){
+			res.send('Error: '+ err)
+		}else{
+			var query = 'SELECT * FROM TESTDATA';
+			conn.query(query, function(err, tables, moreResultsSets){
+				var data = [];
+				console.log(tables.length);
+				var filePath = path.join(__dirname, '/public/js/ourData.js');
+				var wstream = fs.createWriteStream(filePath);
+				wstream.write("var heat1=[\n");
+				if(!err){
+					for(var i = 0; i < 3; i++){
+						if(i == 0){
+							for(var j = 0; j < tables.length; j++){
+								if(j < parseInt(tables.length/3)){
+									if(j == ((tables.length/3)-1)){
+										data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
+										wstream.write(data[j]);	
+									}else{
+										data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
+										wstream.write(data[j]);
+									}	
+									}else{
+										if(i == 1){
+											if(j < parseInt((tables.length/3)*2)){
+												wstream.write('];\n');
+												wstream.write('var heat2=[\n');
+												if(j == (((tables.length/3)*2)-1)){
+													data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
+													wstream.write(data[j]);	
+												}else{
+													data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
+													wstream.write(data[j]);
+												}
+											}
+										}else{
+											if(i == 2){
+												if(j >= parseInt((tables.length/3)*2)){
+													wstream.write('];\n');
+													wstream.write('var heat3=[\n');
+													if(j == (tables.length-1)){
+														data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
+														wstream.write(data[j]);	
+													}else{
+														data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
+														wstream.write(data[j]);
+													}
+												}
+										}
+
+									}
+							}
+						}
+					}
+						// if(i == 0){
+						// 	for(var j = 0; j < parseInt(tables.length/3); j++){
+						// 		if(j == ((tables.length/3)-1)){
+						// 			data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
+						// 			wstream.write(data[j]);	
+						// 		}else{
+						// 			data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
+						// 			wstream.write(data[j]);
+						// 		}
+						// 	}
+						// }else{
+						// 	if(i == 1){
+						// 		wstream.write('];\n');
+						// 		wstream.write('var heat2=[\n');
+						// 		for(var k = 0; k < parseInt((tables.length/3)*2); k++){
+						// 			if(k == (((tables.length/3)*2)-1)){
+						// 				data[k] = '['+tables[k]['X']+','+tables[k]['Y']+']\n';
+						// 				wstream.write(data[k]);	
+						// 			}else{
+						// 				data[k] = '['+tables[k]['X']+','+tables[k]['Y']+'],\n';
+						// 				wstream.write(data[k]);
+						// 			}
+						// 		}
+						// 	}else{
+						// 		if(i == 2){
+						// 			wstream.write('];\n');
+						// 			wstream.write('var heat3=[\n');
+						// 			for(var l = 0; l < tables.length; l++){
+						// 				if(l == (tables.length-1)){
+						// 					data[l] = '['+tables[l]['X']+','+tables[l]['Y']+']\n';
+						// 					wstream.write(data[l]);	
+						// 				}else{
+						// 					data[l] = '['+tables[l]['X']+','+tables[l]['Y']+'],\n';
+						// 					wstream.write(data[l]);
+						// 				}
+										
+						// 			}
+						// 		}
+						// 	}
+						// }
+					}
+					wstream.write('];');
+					wstream.end(function(){
+						res.render('admin.ejs');
+					});
+				}else{
+					res.send('error: '+err);
+				}
+			});
+		}
+	});
+});
 app.get('/admin', function(req, res){
 	ibmdb.open(connString, function(err, conn){
 		if(err){
-			res.send("Error occurred: ", err.message);
+			res.send("Error occurred: "+ err.message);
 		}else{
 			var query = 'SELECT * FROM TESTDATA';
 			conn.query(query, function(err, tables, moreResultsSets){
