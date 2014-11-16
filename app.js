@@ -50,49 +50,46 @@ app.get('/test', function(req, res){
 				var wstream = fs.createWriteStream(filePath);
 				wstream.write("var heat1=[\n");
 				if(!err){
-					for(var i = 0; i < 3; i++){
-						if(i == 0){
-							for(var j = 0; j < tables.length; j++){
-								if(j < parseInt(tables.length/3)){
-									if(j == ((tables.length/3)-1)){
+					for(var j = 0; j < tables.length; j++){
+						if(j < parseInt(tables.length/3)){
+							if(j == ((tables.length/3)-1)){
+								data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
+								wstream.write(data[j]);	
+								wstream.write('];\n');
+								wstream.write('var heat2=[\n');
+							}else{
+								data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
+								wstream.write(data[j]);
+								
+							}	
+						}else{
+							if(j < parseInt((tables.length/3)*2)){
+								
+								if(j == (((tables.length/3)*2)-1)){
+									data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
+									wstream.write(data[j]);	
+									wstream.write('];\n');
+									wstream.write('var heat3=[\n');
+								}else{
+									data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
+									wstream.write(data[j]);
+									
+								}
+							}else{
+								if(j >= parseInt((tables.length/3)*2)){
+									
+									if(j == (tables.length-1)){
 										data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
 										wstream.write(data[j]);	
 									}else{
 										data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
 										wstream.write(data[j]);
-									}	
-									}else{
-										if(i == 1){
-											if(j < parseInt((tables.length/3)*2)){
-												wstream.write('];\n');
-												wstream.write('var heat2=[\n');
-												if(j == (((tables.length/3)*2)-1)){
-													data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
-													wstream.write(data[j]);	
-												}else{
-													data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
-													wstream.write(data[j]);
-												}
-											}
-										}else{
-											if(i == 2){
-												if(j >= parseInt((tables.length/3)*2)){
-													wstream.write('];\n');
-													wstream.write('var heat3=[\n');
-													if(j == (tables.length-1)){
-														data[j] = '['+tables[j]['X']+','+tables[j]['Y']+']\n';
-														wstream.write(data[j]);	
-													}else{
-														data[j] = '['+tables[j]['X']+','+tables[j]['Y']+'],\n';
-														wstream.write(data[j]);
-													}
-												}
-										}
-
 									}
+								}
 							}
 						}
-					}
+
+
 						// if(i == 0){
 						// 	for(var j = 0; j < parseInt(tables.length/3); j++){
 						// 		if(j == ((tables.length/3)-1)){
