@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-83f7a87b1421faf325c0be0d95318751deb4f5e5.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\1.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="6804efbb78d7facc2e1aa107c7342bee83afae45"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-e52684da059e8ac5dae2e321843d35000b33e241.jar"
+        jar="C:\Users\Bazhunga\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-79d295914c5768a645ccfe5b5de6b48a97e4b445.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v13\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-cca3dd0fd50b934d0c0d7e4ce2f469ec932ab00d.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-a2bc24e033cff59c315d0c2e6577b7720f0ccbf5.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v13\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-55ac0aaa5540df8047f2862a7616cc1a7016cb92.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\libs\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="df28ff15017707162b508f2bc96637dd57f3ed72"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-93fc8f4c7e74b4a2f8baffb2bef9a9a734be9eb3.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\6.1.71\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4ece008bb37e92b9323ee6259cbf4d4583052f9e"/>
+    <item
+        dex="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\pre-dexed\debug\classes-c838e61b06032aeda61485333381181ca061fc13.jar"
+        jar="C:\Users\Bazhunga\Desktop\PersonalProjects\heatmap\Heatmap2\wear\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+
+</pre-dex-items>
