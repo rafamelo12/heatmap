@@ -5,9 +5,13 @@
 var express = require('express');
 var ibmdb = require('ibm_db');
 var fs = require('fs');
-var path = require('path')
+var path = require('path');
+// var bodyParser = require('body-parser');
 // setup middleware
 var app = express();
+app.use(express.bodyParser());
+// app.use(bodyParser.urlencoded({ extended: true}));
+// app.use(bodyParser.json());
 app.use(app.router);
 app.use(express.errorHandler());
 app.use(express.static(__dirname + '/public')); //setup static public directory
@@ -71,6 +75,40 @@ app.get('/admin', function(req, res){
 				});
 			});
 		}
+	});
+});
+app.post('/collectData', function(req, res){
+	var kiwi_id = req.body.kiwi_id;
+	var distance_beacon1 = req.body.distance_beacon1;
+	var distance_beacon2 = req.body.distance_beacon2;
+	var distance_beacon3 = req.body.distance_beacon3;
+	var timestamp = req.body.timestamp;
+	// res.send(distance_beacon1);
+	// var response = {
+	// 	"kiwi_id": kiwi_id,
+	// 	"distance_beacon1": distance_beacon1,
+	// 	"distance_beacon2": distance_beacon2,
+	// 	"distance_beacon3": distance_beacon3
+	// };
+	// res.json(response);
+	
+	var query = "INSERT INTO KIWIDATA (kiwi_id, distance_beacon1, distance_beacon2, distance_beacon3, timestamp) VALUES('"+kiwi_id.toString()+"',"+parseFloat(distance_beacon1)+","+parseFloat(distance_beacon2)+","+parseFloat(distance_beacon3)+","+parseInt(timestamp)+")";
+	// res.send(query);
+	ibmdb.open(connString, function(err, conn){
+		if(err){
+			res.send("Error occurred: ", err.message);
+		}else{
+			conn.query(query, function(err, tables, moreResultsSets){
+				if(err){
+					res.send("Error occured: ", err.message);
+				}else{
+					res.send('YAY! INSERTED INTO THE DB2 :) ');  
+				}
+			});
+		}
+		conn.close(function(){
+			console.log('Connection closed!');
+		})
 	});
 });
 // The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
