@@ -41,8 +41,8 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
 
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
-        tv3 = (TextView) findViewById(R.id.textView2);
-        tv4 = (TextView) findViewById(R.id.textView2);
+        tv3 = (TextView) findViewById(R.id.textView3);
+        tv4 = (TextView) findViewById(R.id.textView4);
 
         if(_beacons == null)
             _beacons = new ArrayList<IBeacon>();
@@ -137,6 +137,7 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv3 = (TextView) findViewById(R.id.textView3);
+        tv4 = (TextView) findViewById(R.id.textView4);
 
         for(int i = 0; i < _beacons.size(); i++){
             if(_beacons.get(i).getMajor() == 7 && _beacons.get(i).getMinor() == 44659){
