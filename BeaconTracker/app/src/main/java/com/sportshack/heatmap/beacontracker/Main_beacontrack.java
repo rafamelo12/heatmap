@@ -8,9 +8,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.wearable.Wearable;
+import com.google.android.gms.wearable.Node;
+
+
+
 import java.util.ArrayList;
 
-public class Main_beacontrack extends Activity implements IBeaconListener{
+public class Main_beacontrack extends Activity implements IBeaconListener, Node{
 
     private static final int REQUEST_BLUETOOTH_ENABLE = 1;
 
@@ -24,8 +30,8 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
     private static TextView tv4;
 
     private Coordinate b1Coord = new Coordinate(0, 0);
-    private Coordinate b2Coord = new Coordinate(1, 0);
-    private Coordinate b3Coord = new Coordinate(0, 1);
+    private Coordinate b2Coord = new Coordinate(4, 0);
+    private Coordinate b3Coord = new Coordinate(0, 3);
     private Coordinate user = new Coordinate();
 
     private float d1 = 0;
@@ -38,6 +44,12 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_beacontrack);
+
+        final GoogleApiClient googleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Wearable.API)
+                .build();
+
+        googleApiClient.connect();
 
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
@@ -157,5 +169,22 @@ public class Main_beacontrack extends Activity implements IBeaconListener{
 
         user.trilaterate(d1, d2, d3, b1Coord, b2Coord, b3Coord);
         tv4.setText("(" + String.valueOf(user.getX()) + ", " + String.valueOf(user.getY()) + ", " + String.valueOf(user.getZ()) + ")");
+    }
+
+    public void onPeerConnected(Node peer) {
+
+        String id = peer.getId();
+        String name = peer.getDisplayName();
+
+    }
+
+    @Override
+    public String getId() {
+        return null;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Moto360";
     }
 }
